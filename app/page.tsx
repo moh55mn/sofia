@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -6,17 +5,12 @@ import { Button } from "@/components/ui/button";
 export default function Home() {
 	return (
 		<div>
-			<section className="relative overflow-hidden">
-				<div className="absolute inset-0">
-					<Image
-						src="/sofia4.jpg"
-						alt=""
-						fill
-						priority
-						className="object-cover"
-					/>
-					<div className="absolute inset-0 bg-background/70" />
-				</div>
+			<section className="relative min-h-[calc(100vh-4rem)] overflow-hidden">
+				<div
+					className="absolute inset-0 bg-cover bg-center"
+					style={{ backgroundImage: "url('/sofia4.jpg')" }}
+				/>
+				<div className="absolute inset-0 bg-background/75" />
 
 				<div className="relative mx-auto max-w-6xl px-6 py-16 sm:py-20 md:py-28">
 					<h1 className="mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl md:text-7xl">

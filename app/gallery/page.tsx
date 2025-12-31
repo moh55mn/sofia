@@ -10,9 +10,6 @@ export default function Gallery() {
 			<div className="flex items-end justify-between gap-4">
 				<div>
 					<h1 className="text-3xl font-semibold tracking-tight">Gallery</h1>
-					<p className="mt-2 text-sm text-muted-foreground">
-						A simple grid built with shadcn cards + Next/Image.
-					</p>
 				</div>
 			</div>
 

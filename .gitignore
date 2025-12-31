@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# accidentally nested git repo
+/sofia/
+
 # production
 /build
 

@@ -1,34 +1,54 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
 export default function Tribute() {
-  const buttonClass =
-    "block w-full px-10 py-4 bg-pink-600 rounded-full text-white hover:bg-pink-700 transition shadow-lg";
-
   return (
-    <section
-      className="h-[calc(100vh-4rem)] w-full flex items-center justify-center px-6 text-center bg-cover bg-center overflow-hidden"
-      style={{ backgroundImage: "url('/sofia2.jpg')" }}
-    >
-      <div className="w-full max-w-2xl mx-auto">
-        <h2 className="text-5xl font-bold mb-6">Tribute</h2>
-        <p className="text-pink-200 mb-12">
-        </p>
+    <section className="relative overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/sofia2.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-background/75" />
 
-        <div className="space-y-6">
-          <a href="https://throne.com/servesofia" target="_blank" className={buttonClass}>
-            Throne
-          </a>
+      <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl items-center justify-center px-6 py-12">
+        <Card className="w-full max-w-xl">
+          <CardHeader>
+            <CardTitle className="text-2xl">Tribute</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-3">
+              <Button asChild>
+                <a
+                  href="https://throne.com/servesofia"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Throne
+                </a>
+              </Button>
 
-          <a href="https://youpay.me/servesofia" target="_blank" className={buttonClass}>
-            YouPay
-          </a>
+              <Button variant="secondary" asChild>
+                <a
+                  href="https://youpay.me/servesofia"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  YouPay
+                </a>
+              </Button>
 
-          <a
-            href="https://www.loyalfans.com/servesofia_"
-            target="_blank"
-            className={buttonClass}
-          >
-            LoyalFans
-          </a>
-        </div>
+              <Button variant="outline" asChild>
+                <a
+                  href="https://www.loyalfans.com/servesofia_"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LoyalFans
+                </a>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

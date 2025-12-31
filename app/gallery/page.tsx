@@ -1,8 +1,37 @@
 import Image from "next/image";
 
-export default function Gallery() { const images = ["/sofia1.jpg", "/sofia2.jpg", "/sofia3.jpg"];
+import { Card, CardContent } from "@/components/ui/card";
 
-return ( <section className="max-w-6xl mx-auto px-6"> <h2 className="text-4xl font-bold mb-10 text-center">Gallery</h2> <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8"> {images.map((src, i) => ( <div
-key={i}
-className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800"
-> <Image src={src} alt="Sofia" fill className="object-cover" /> </div> ))} </div> </section> ); }
+export default function Gallery() {
+	const images = ["/sofia1.jpg", "/sofia2.jpg", "/sofia3.jpg"];
+
+	return (
+		<section className="mx-auto max-w-6xl px-6 py-12">
+			<div className="flex items-end justify-between gap-4">
+				<div>
+					<h1 className="text-3xl font-semibold tracking-tight">Gallery</h1>
+					<p className="mt-2 text-sm text-muted-foreground">
+						A simple grid built with shadcn cards + Next/Image.
+					</p>
+				</div>
+			</div>
+
+			<div className="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+				{images.map((src) => (
+					<Card key={src} className="overflow-hidden">
+						<CardContent className="p-0">
+							<div className="relative aspect-[3/4]">
+								<Image
+									src={src}
+									alt="Sofia"
+									fill
+									className="object-cover"
+								/>
+							</div>
+						</CardContent>
+					</Card>
+				))}
+			</div>
+		</section>
+	);
+}

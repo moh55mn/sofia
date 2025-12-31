@@ -1,5 +1,56 @@
-import "./globals.css"; import Link from "next/link";
+import "./globals.css";
 
-export const metadata = { title: "Serve Sofia", description: "Luxury, control, and financial devotion.", };
+import Link from "next/link";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) { return ( <html lang="en"> <body className="bg-gradient-to-b from-zinc-950 via-zinc-900 to-black text-zinc-100 min-h-screen"> <nav className="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur border-b border-zinc-800"> <div className="max-w-7xl mx-auto h-16 flex justify-between items-center px-6"> <Link href="/" className="font-semibold text-lg tracking-wide"> Sofia </Link> <div className="flex gap-6 text-sm text-zinc-300"> <Link href="/about" className="hover:text-white">About</Link> <Link href="/tribute" className="hover:text-white">Tribute</Link> <Link href="/gallery" className="hover:text-white">Gallery</Link> <Link href="https://x.com/servesofia_" target="_blank" className="hover:text-white">X</Link> </div> </div> </nav> <main className="pt-16">{children}</main> </body> </html> ); }
+import { Button } from "@/components/ui/button";
+
+export const metadata = {
+	title: "Serve Sofia",
+	description: "Luxury, control, and financial devotion.",
+};
+
+export default function RootLayout({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
+	return (
+		<html lang="en" className="dark">
+			<body className="min-h-screen bg-background text-foreground">
+				<header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
+					<div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+						<Link
+							href="/"
+							className="font-semibold tracking-tight"
+						>
+							Sofia
+						</Link>
+
+						<nav className="flex items-center gap-1">
+							<Button variant="ghost" size="sm" asChild>
+								<Link href="/about">About</Link>
+							</Button>
+							<Button variant="ghost" size="sm" asChild>
+								<Link href="/gallery">Gallery</Link>
+							</Button>
+							<Button variant="ghost" size="sm" asChild>
+								<Link href="/tribute">Tribute</Link>
+							</Button>
+							<Button variant="outline" size="sm" asChild>
+								<Link
+									href="https://x.com/servesofia_"
+									target="_blank"
+									rel="noreferrer"
+								>
+									X
+								</Link>
+							</Button>
+						</nav>
+					</div>
+				</header>
+
+				<main>{children}</main>
+			</body>
+		</html>
+	);
+}
